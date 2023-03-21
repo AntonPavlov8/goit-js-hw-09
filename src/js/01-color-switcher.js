@@ -14,12 +14,12 @@ startBT.addEventListener('click', () => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 500);
 
-  startBT.setAttribute('disabled', '');
-  stopBT.removeAttribute('disabled');
+  startBT.disabled = true;
+  stopBT.disabled = false;
 });
 stopBT.addEventListener('click', () => {
   clearInterval(colorSwitcher);
 
-  stopBT.setAttribute('disabled', '');
-  startBT.removeAttribute('disabled');
+  stopBT.disabled = true;
+  startBT.disabled = false;
 });

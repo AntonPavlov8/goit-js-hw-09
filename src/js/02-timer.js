@@ -4,7 +4,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 const dateTime = document.querySelector('#datetime-picker');
 const startBT = document.querySelector('button[data-start]');
-startBT.setAttribute('disabled', '');
+startBT.disabled = true;
 
 const fp = flatpickr(dateTime, {
   enableTime: true,
@@ -22,8 +22,10 @@ function dateSelected(selectedDates) {
   if (remainingTime < 0) {
     Notiflix.Notify.failure('Please choose a date in the future');
   } else {
-    startBT.removeAttribute('disabled');
-    startCountdown(selectedDates);
+    startBT.disabled = false;
+    startBT.addEventListener('click', () => {
+      startCountdown(selectedDates);
+    });
   }
 }
 
